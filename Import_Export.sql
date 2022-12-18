@@ -14,6 +14,9 @@ CALL export_inventory_type();
 
 DROP PROCEDURE export_inventory_type;
 
+select * from inventory_type_table;
+delete from inventory_type_table where inventory_type_id = 5;
+commit;
 
 -------------------------IMPORT_INVENTORY_TYPE-------------------------
 
@@ -29,3 +32,25 @@ END import_inventory_type;
 CALL import_inventory_type();
 
 DROP PROCEDURE import_inventory_type;
+
+
+
+
+/*
+docker exec -u root -t -i 0299d2276ad7cef6f9e64d084ed715d9249758d13c99c1edb01a1ee66073e98c /bin/bash
+cd /opt/oracle/admin/XE/dpdump/
+
+Ё —ѕќ–“ !!!
+1) ls в директории - файла нет (перед этим сделать rm inventory_type_export.xml)
+2) запускаю inventory_type_export процедуру;
+3) селект из inventory_type_table
+4) ls в директории - файл по€вилс€, cat inventory_type_export.xml - показываем структуру таблицы
+
+»ћѕќ–“ !!!
+1) селект из inventory_type_table (показываем, что там нет изначально)
+2) в директории пишу echo:
+
+echo "<?xml version=\"1.0\"?><ROWSET><ROW><INVENTORY_TYPE_NAME>Cup</INVENTORY_TYPE_NAME></ROW></ROWSET>" > import_inventory_type.xml
+
+3) запускаю процедуру inventory_type_import, делаю ls, cat inventory_type_import.xml, селект из inventory_type_table (что по€вилось новое значение)
+*/
