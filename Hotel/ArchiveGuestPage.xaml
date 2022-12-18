@@ -1,0 +1,18 @@
+﻿<Page x:Class="Hotel.ArchiveGuestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hotel"
+      mc:Ignorable="d" 
+      Title="ArchiveGuestPage" Width="920" Height="510" Loaded="ArchiveGuestPageLoaded" FontFamily="Comic Sans MS, Verdana">
+
+    <Grid>
+        <StackPanel x:Name="ArchiveStackPanel" Orientation="Vertical" >
+            <ScrollViewer Name="ArchiveScrollViewer" CanContentScroll="True" Height="510">
+                <WrapPanel x:Name="ArchiveWrapPanel" >
+                </WrapPanel>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Page>

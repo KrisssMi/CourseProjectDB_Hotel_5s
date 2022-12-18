@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Hotel.BookingInventoryItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="900" Loaded="InventoryItemLoaded" MouseDoubleClick="InventoryItemMouseDoubleClick" FontFamily="Comic Sans MS, Verdana" FontSize="10" Foreground="Black">
+    <Grid>
+        <Border x:Name="Border" Background="#F5F5F5" BorderThickness="2" CornerRadius="1, 1, 1, 1">
+            <WrapPanel x:Name="InventoryWrapPanel" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox x:Name="InventoryCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ItemChecked" Unchecked="ItemUnchecked">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="1.8" ScaleY="2" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <TextBlock x:Name="InventoryTypeTextBlock" Text="Inventory type: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="80"/>
+                    <ComboBox x:Name="InventoryTypeComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" SelectionChanged ="InventoryTypeSelectionChanged" />
+                    <TextBlock x:Name="InventoryTextBlock" Text="Inventory: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="55"/>
+                    <ComboBox x:Name="InventoryComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" SelectionChanged ="InventorySelectionChanged"/>
+                    <TextBlock x:Name="StartDateTextBlock" Text="Start rent date: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="80"/>
+                    <DatePicker x:Name="StartDateDatePicker" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" IsEnabled="False"/>
+                    <TextBlock x:Name="EndDateTextBlock" Text="End rent date: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="75"/>
+                    <DatePicker x:Name="EndDateDatePicker" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" IsEnabled="False"/>
+                    <TextBlock x:Name="InventoryPrice" Text="Daily price: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="175"/>
+                </StackPanel>
+                <StackPanel x:Name="AlbumStackPanel" Height="300" Width="896" Orientation="Horizontal" Visibility="Collapsed">
+                    <ScrollViewer Name="AlbumScrollViewer" CanContentScroll="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Height="300" Width="896">
+                        <WrapPanel x:Name="PhotoWrapPanel" Orientation="Horizontal" HorizontalAlignment="Center" >
+                        </WrapPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </WrapPanel>
+        </Border>
+    </Grid>
+</UserControl>

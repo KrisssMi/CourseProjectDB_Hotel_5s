@@ -1,0 +1,77 @@
+﻿<Page x:Class="Hotel.InventoriesAdministratorPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="InventoriesAdministratorPage" Width="920" Height="510" Loaded="InventoriesAdministratorPageLoaded" FontFamily="Comic Sans MS, Verdana" Foreground="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="24"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock FontSize="16" FontWeight="Bold" Text="Inventory type table:" Width="900" TextAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"/>
+
+        <WrapPanel Grid.Column="0" Grid.Row="1" Margin="2,2,1,1">
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock x:Name="InventoryTypeIdTextBlock" Text="Id: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="93"/>
+                <TextBox x:Name="InventoryTypeIdTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="24" Width="210" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                <TextBlock x:Name="InventoryTypeNameTextBlock" Text="Name: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="93"/>
+                <TextBox x:Name="InventoryTypeNameTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="24" Width="210" />
+            </StackPanel>
+        </WrapPanel>
+
+        <DataGrid x:Name="InventoryTypeTable" Margin="1,2,2,1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" SelectionChanged="InventoryTypeSelectionChanged" IsReadOnly="True"/>
+
+        <Button x:Name="InsertInventoryTypeButton" Margin="2,2,1,2" Grid.Column="0" Grid.Row="2" Content="Insert" Click="InsertInventoryTypeClick" IsEnabled="True" BorderBrush="{x:Null}" Background="#FFFDFDBC"/>
+        <Button x:Name="UpdateInventoryTypeButton" Margin="1,2,1,2" Grid.Column="1" Grid.Row="2" Content="Update" Click="UpdateInventoryTypeClick" IsEnabled="True" BorderBrush="{x:Null}" Background="#FFF4FF84"/>
+        <Button x:Name="DeleteInventoryTypeButton" Margin="1,2,2,2" Grid.Column="2" Grid.Row="2" Content="Delete" Click="DeleteInventoryTypeClick" IsEnabled="True" BorderBrush="{x:Null}" Background="#FFFFF444"/>
+
+        <TextBlock FontSize="16" FontWeight="Bold" Text="Inventory table:" Width="900" TextAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3"/>
+
+        <WrapPanel Grid.Column="0" Grid.Row="4" Margin="2,2,1,1">
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock x:Name="InventoryIdTextBlock" Text="Id: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="93"/>
+                <TextBox x:Name="InventoryIdTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="24" Width="210" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                <TextBlock x:Name="InventoryInventoryTypeIdTextBlock" Text="Inventory type: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="93"/>
+                <TextBox x:Name="InventoryInventoryTypeIdTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="24" Width="210" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                <TextBlock x:Name="InventoryAlbumIdTextBlock" Text="Album id: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="93"/>
+                <TextBox x:Name="InventoryAlbumIdTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="24" Width="210" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                <TextBlock x:Name="InventoryDescriptionTextBlock" Text="Description: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="93"/>
+                <TextBox x:Name="InventoryDescriptionTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="24" Width="210" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                <TextBlock x:Name="InventoryDailyPriceTextBlock" Text="Daily price: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="93"/>
+                <TextBox x:Name="InventoryDailyPriceTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="24" Width="210" />
+            </StackPanel>
+        </WrapPanel>
+        
+        <DataGrid x:Name="InventoryTable" Margin="1,2,2,0" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" SelectionChanged="InventorySelectionChanged" IsReadOnly="True"/>
+
+        <Button x:Name="InsertInventoryButton" Margin="2,2,1,2" Grid.Column="0" Grid.Row="5" Content="Insert" Click="InsertInventoryClick" IsEnabled="True" Background="#FFFDFDBC" BorderBrush="{x:Null}"/>
+        <Button x:Name="UpdateInventoryButton" Margin="1,2,1,2" Grid.Column="1" Grid.Row="5" Content="Update" Click="UpdateInventoryClick" IsEnabled="False" Background="#FFF4FF84" BorderBrush="{x:Null}"/>
+        <Button x:Name="DeleteInventoryButton" Margin="1,2,2,2" Grid.Column="2" Grid.Row="5" Content="Delete" Click="DeleteInventoryClick" IsEnabled="False" Background="#FFFFF444" BorderBrush="{x:Null}"/>
+    </Grid>
+</Page>
